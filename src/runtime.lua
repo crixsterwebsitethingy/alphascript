@@ -17,6 +17,12 @@ function runtime:run(data)
             local result = tonumber(args[1]) - tonumber(args[2])
             print(v.line..": " .. result)
             --return tonumber(args[1]) - tonumber(args[2])
+        elseif v.func == "multiply" then
+            local result = tonumber(args[1]) * tonumber(args[2])    
+            print(v.line..": " .. result)
+        elseif v.func  == "divide" then
+            local result = tonumber(args[1]) / tonumber(args[2])    
+            print(v.line..": " .. result)
         end
     end
 

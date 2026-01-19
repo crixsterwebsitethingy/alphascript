@@ -19,9 +19,11 @@ function lexer.tokenize(source)
             --print("Found sub function")
             table.insert(tokens, {ID = a, class = "MATH", type = "ARITHMETIC", value = "sub", args0 = args})
             table.insert(tokens, {ID = a, class = "ARGUMENTS", value = args})
+        elseif name == "mul" then
+            table.insert(tokens, {ID = a, class = "MATH", type = "ARITHMETIC", value = "mul", args0 = args})
+        elseif name == "div" then
+            table.insert(tokens, {ID = a, class = "MATH", type = "ARITHMETIC", value = "div", args0 = args})
         end
-        else 
-            print("No function found on line " .. a)
         end
         --[[if func:match("^as%.([%a_]+)$") == "add" then
             print("Found add function")

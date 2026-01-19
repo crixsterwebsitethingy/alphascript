@@ -10,6 +10,12 @@ function interpreter.execute(input)
             elseif token.value == "sub" then
                 print("Executing subtraction with arguments: " .. token.args0.." at line "..token.ID)
                 table.insert(for_runtime, {line = token.ID, func = "subtract", args = token.args0})
+            elseif token.value == "mul" then
+                print("Executing multiplication with arguments: " .. token.args0.." at line "..token.ID)
+                table.insert(for_runtime, {line = token.ID, func = "multiply", args = token.args0})
+            elseif token.value == "div" then
+                print("Executing division with arguments: " .. token.args0.." at line "..token.ID)
+                table.insert(for_runtime, {line = token.ID, func = "divide", args = token.args0})
             end
         end
     end
