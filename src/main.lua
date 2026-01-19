@@ -20,7 +20,7 @@ local function run(f)
     local tokens = lexer.tokenize(source)
   --  local ast = parser.parse(tokens)
     local result = interpreter.execute(tokens)
-    runtime:run(result)
+   -- runtime:run(result)
     --errors:list()
 end
 local file = arg[1]

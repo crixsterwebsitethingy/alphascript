@@ -12,12 +12,12 @@ function lexer.tokenize(source)
         if func then
         local name = func:match("^as%.([%a_]+)$")
         if name == "add" then
-            print("Found add function. Arguments: " .. args)
+            --print("Found add function. Arguments: " .. args)
             table.insert(tokens, {ID = a, class = "MATH", type = "ARITHMETIC", value = "add", args0 = args   })
             table.insert(tokens, {ID = a, class = "ARGUMENTS", value = args})
         elseif name == "sub" then
-            print("Found sub function")
-            table.insert(tokens, {class = "MATH", type = "ARITHMETIC", value = "sub"})
+            --print("Found sub function")
+            table.insert(tokens, {ID = a, class = "MATH", type = "ARITHMETIC", value = "sub", args0 = args})
             table.insert(tokens, {ID = a, class = "ARGUMENTS", value = args})
         end
         else 

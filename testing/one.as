@@ -1,1 +1,5 @@
 as.add(5,3)
+as.add(10,4)
+as.sub(11, 4)
+as.add(178, 37)
+as.add(9, 0)

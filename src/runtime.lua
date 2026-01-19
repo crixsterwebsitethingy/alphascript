@@ -1,9 +1,6 @@
 local runtime = {}
-
+print("----ALPHASCRIPT RUNTIME TERMINAL----")
 function runtime:run(data)
-    print("Runtime started.")
-    print("----ALPHASCRIPT RUNTIME TERMINAL----")
-
     for i, v in ipairs(data) do
         local args = {} 
         for arg in v.args:gmatch("[^,]+") do
@@ -11,13 +8,15 @@ function runtime:run(data)
              --print(args[1])
             --print(args[2])
         end
-        print("Running: " .. v.func)
+        --print("Running: " .. v.func)
         if v.func == "add" then
             local result = tonumber(args[1]) + tonumber(args[2])
-            print("Result: " .. result)
-            return result
+            print(v.line..": " .. result)
+            --return result
         elseif v.func == "subtract" then
-            return tonumber(args[1]) - tonumber(args[2])
+            local result = tonumber(args[1]) - tonumber(args[2])
+            print(v.line..": " .. result)
+            --return tonumber(args[1]) - tonumber(args[2])
         end
     end
 
