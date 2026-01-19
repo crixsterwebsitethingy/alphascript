@@ -5,16 +5,16 @@ function interpreter.execute(input)
     for _, token in ipairs(input) do
         if token.class == "MATH" then
             if token.value == "add" then
-                print("Executing addition with arguments: "..token.args0.." at line "..token.ID)
+                --print("Executing addition with arguments: "..token.args0.." at line "..token.ID)
                 table.insert(for_runtime, {line = token.ID, func = "add", args = token.args0})
             elseif token.value == "sub" then
-                print("Executing subtraction with arguments: " .. token.args0.." at line "..token.ID)
+                --print("Executing subtraction with arguments: " .. token.args0.." at line "..token.ID)
                 table.insert(for_runtime, {line = token.ID, func = "subtract", args = token.args0})
             elseif token.value == "mul" then
-                print("Executing multiplication with arguments: " .. token.args0.." at line "..token.ID)
+                --print("Executing multiplication with arguments: " .. token.args0.." at line "..token.ID)
                 table.insert(for_runtime, {line = token.ID, func = "multiply", args = token.args0})
             elseif token.value == "div" then
-                print("Executing division with arguments: " .. token.args0.." at line "..token.ID)
+                --print("Executing division with arguments: " .. token.args0.." at line "..token.ID)
                 table.insert(for_runtime, {line = token.ID, func = "divide", args = token.args0})
             end
         end
