@@ -1,6 +1,5 @@
 local interpreter = require("interpreter")
 local lexer = require("lexer")
-local parser = require("parser") 
 local runtime = require("runtime")   
 
 local function runfile(path)
