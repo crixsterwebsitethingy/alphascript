@@ -6,16 +6,17 @@ function runtime:run(data)
         for arg in v.args:gmatch("[^,]+") do
             table.insert(args, arg)
         end
+        --print(v.func)
         if v.func == "add" then
             local result = tonumber(args[1]) + tonumber(args[2])
             print(v.line..": " .. result)
-        elseif v.func == "subtract" then
+        elseif v.func == "sub" then
             local result = tonumber(args[1]) - tonumber(args[2])
             print(v.line..": " .. result)
-        elseif v.func == "multiply" then
+        elseif v.func == "mul" then
             local result = tonumber(args[1]) * tonumber(args[2])    
             print(v.line..": " .. result)
-        elseif v.func  == "divide" then
+        elseif v.func  == "div" then
             local result = tonumber(args[1]) / tonumber(args[2])    
             print(v.line..": " .. result)
         end

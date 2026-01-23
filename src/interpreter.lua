@@ -1,23 +1,26 @@
 local interpreter = {}
+local funcs = require("functions")
 local rt = require("runtime")
 function interpreter.execute(input)
+    local last_funcdef = nil
     local for_runtime = {}
+    local for_runtime_funcs = {}
     for _, token in ipairs(input) do
         if token.class == "MATH" then
-            if token.value == "add" then
-                --print("Executing addition with arguments: "..token.args0.." at line "..token.ID)
-                table.insert(for_runtime, {line = token.ID, func = "add", args = token.args0})
-            elseif token.value == "sub" then
-                --print("Executing subtraction with arguments: " .. token.args0.." at line "..token.ID)
-                table.insert(for_runtime, {line = token.ID, func = "subtract", args = token.args0})
-            elseif token.value == "mul" then
-                --print("Executing multiplication with arguments: " .. token.args0.." at line "..token.ID)
-                table.insert(for_runtime, {line = token.ID, func = "multiply", args = token.args0})
-            elseif token.value == "div" then
-                --print("Executing division with arguments: " .. token.args0.." at line "..token.ID)
-                table.insert(for_runtime, {line = token.ID, func = "divide", args = token.args0})
-            end
+                table.insert(for_runtime, {line = token.ID, func = token.value, args = token.args0})
+        --[[elseif token.class == "FUNC" then
+            table.insert(for_runtime_funcs, {line = token.ID, func = "func", args = token.args0, body_start = token.ID + 1, body_end = nil })
+            last_funcdef = token.ID
+        elseif token.class == "FUNC_END" then
+            for k, v in #for_runtime_funcs do
+                if k.func == "func" and last_funcdef == k.ID then
+                    k.body_end = token.ID
+                    print(k.body_end)
+                    last_funcdef = {}
+                end
+            end]]
         end
+
     end
     rt:run(for_runtime)
 end

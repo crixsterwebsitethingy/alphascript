@@ -1,7 +1,7 @@
-as.add(5,3)
-as.add(10,4)
-as.sub(11, 4)
-as.add(178, 37)
-as.add(9, 0)
-as.mul(9, 10)
-as.div(9, 3)
+func("hello")
+
+end
+as.add(1, 24)
+as.sub(4, 5)
+as.mul(190, 32483)
+as.div(1, 1)
