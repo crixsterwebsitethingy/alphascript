@@ -7,3 +7,4 @@ function functions.call(name, params)
     --todo, for now functions just run at runtime
 end
 return functions
+--e
